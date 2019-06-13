@@ -1,0 +1,28 @@
+body {
+  color: #a58429;
+  background: black;
+}
+
+#content {
+  text-Align: center;
+}
+
+#logoImage {
+  height: 250px;
+  width: 250px;
+}
+
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
+  background: #a58429;
+}
+
+#email {
+  display: inline-block;
+  color: black;
+  margin: 5px 0 0 0;
+}
