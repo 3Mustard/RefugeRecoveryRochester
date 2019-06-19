@@ -1,10 +1,83 @@
 body {
-  color: #a58429;
   background: black;
 }
 
+button {
+  background-color: #a58429;
+  border: 1px outset black;
+}
+
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: black;
+  color: #a58429;
+}
+
+#top {
+  text-align: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 30px;
+  width: 100%;
+  color: black;
+  background: #a58429;
+}
+
+#homeContent {
+  display: inline-block;
+  margin: 4px 20px 16px 20px;
+}
+
+#about {
+  display: inline-block;
+  margin: 4px 20px 16px 20px;
+}
+
+#four {
+  display: inline-block;
+  margin: 4px 20px 16px 20px;
+}
+
+#eight {
+  display: inline-block;
+  margin: 4px 20px 16px 20px;
+}
+
+#learnMore {
+  display: inline-block;
+  margin: 4px 20px 16px 20px;
+  text-decoration: none;
+  background-color: #a58429;
+  color: black;
+  padding: 1px 6px 1px 6px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
+#learnMore:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: black;
+  color: #a58429;
+}
+
+#logo {
+  text-align: center;
+  margin-top: 60px;
+}
+
 #content {
+  margin: 50px 0 0 0;
   text-Align: center;
+  color: #a58429;
+}
+
+#aboutText {
+  margin: 50px 0 0 0;
+  text-Align: center;
+  color: #a58429;
 }
 
 #logoImage {
@@ -12,8 +85,17 @@ body {
   width: 250px;
 }
 
+#bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
+}
+
 #footer {
   position: fixed;
+  text-align: center;
   left: 0;
   bottom: 0;
   height: 30px;
@@ -24,5 +106,11 @@ body {
 #email {
   display: inline-block;
   color: black;
-  margin: 5px 0 0 0;
+  margin: 5px 20px 0 20px;
+}
+
+#learnMoreLink {
+  display: inline-block;
+  color: black;
+  margin: 5px 20px 0 20px;
 }
