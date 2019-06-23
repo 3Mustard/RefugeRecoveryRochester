@@ -1,24 +1,3 @@
-//create header
-let topDiv = document.getElementById("top");
-let homeContent = document.createElement("BUTTON");
-homeContent.id = "homeContent";
-homeContent.textContent = "Home";
-homeContent.addEventListener('click', ()=> home());
-let aboutText = document.createElement("BUTTON");
-aboutText.id = "about";
-aboutText.textContent = "About";
-aboutText.addEventListener('click', ()=> aboutUs());
-let fourTruth = document.createElement("BUTTON");
-fourTruth.id = "four";
-fourTruth.textContent = "The Four Noble Truths";
-let eightPath = document.createElement("BUTTON");
-eightPath.id = "eight";
-eightPath.textContent = "The Eightfold Path";
-let learnMore = document.createElement("a");
-learnMore.id = "learnMore";
-learnMore.textContent = "Learn more";
-learnMore.href = "https://refugerecovery.org/";
-
 //create content divs
 let content = document.getElementById("content");
 let logoTextHeader = document.createElement("h3");
@@ -40,7 +19,15 @@ learnMoreLink.id = "learnMoreLink";
 learnMoreLink.textContent = "https://refugerecovery.org/";
 learnMoreLink.href = "https://refugerecovery.org/";
 
+let homeButton = document.getElementById("homeButton");
+homeButton.addEventListener('click', ()=> home());
+
+let aboutButton = document.getElementById("aboutButton");
+aboutButton.addEventListener('click', ()=> aboutUs());
+
 function home(){
+  window.scrollTo(0,0);
+  setActive('homeButton');
   clearContent();
   meetingTimesHeader.textContent = "Refuge Recovery Rochester";
   logoTextHeader.textContent = "A Buddhist Inspired Path To Recovery From Addiction";
@@ -68,43 +55,90 @@ function clearContent(){
   document.getElementById("content").innerHTML='';
 }
 
-function aboutUs(){
-  clearContent();
-  let aboutText = document.createElement("p");
-  aboutText.id = "aboutText";
-  aboutText.setAttribute('style', 'white-space: pre;');
-  aboutText.textContent = "Refuge Recovery is a non-theistic, Buddhist-inspired\r\n";
-  aboutText.textContent += "approach to recovery from addictions of all kinds.\r\n";
-  aboutText.textContent += "\r\n";
-  aboutText.textContent += "We are a community of people dedicated to the practices of\r\n";
-  aboutText.textContent += "mindfulness, compassion, forgivness, and generosity,\r\n";
-  aboutText.textContent += "using meditation and kindness to heal the pain and suffering\r\n";
-  aboutText.textContent += "that addiction has caused in our lives and in the lives of those around us.\r\n";
-  aboutText.textContent += "\r\n";
-  aboutText.textContent += "Our weekly peer-led meetings include guided meditations,\r\n";
-  aboutText.textContent += "readings from the book Refuge Recovery, and group sharing/discussion.\r\n";
-  aboutText.textContent += "\r\n";
-  aboutText.textContent += "Open to people of all backgrounds and respectful of all recovery paths,\r\n";
-  aboutText.textContent += "these meetings are appropriate for anyone in, or interested in,\r\n";
-  aboutText.textContent += "recovery from any forms of addictive behavior.\r\n";
-  aboutText.textContent += "No prior meditation experience necessary.\r\n";
+function setActive(id){
   
-  content.appendChild(aboutText);
+  let active;
+  let topnav = document.getElementById('myTopnav');
+  
+  if(topnav.className !== 'topnav responsive'){
+
+  
+    if(document.getElementsByClassName('active') !== null){
+    
+      active = document.getElementsByClassName('active')[0];
+      active.className= "";
+    
+    }
+  
+    document.getElementById(id).className ="active";
+  }
+  
+  
 }
 
-function fourNobleTruths(){
+function aboutUs(){
+  window.scrollTo(0,0);
+  setActive('aboutButton');
   clearContent();
-  let fourTruthText = document.createElement("p");
-  fourTruthText.id = "fourTruthText";
-  fourTruthText.setAttribute('style', 'white-space: pre;');
-  fourTruthText.textContent = "\r\n";
+  let br = document.createElement("br");
+  let aboutText = document.createTextNode("Refuge Recovery is a non-theistic, Buddhist inspired approach to recovery from addictions of all kinds. Our weekly peer-led meetings include guided meditations, readings from the book Refuge Recovery, and group sharing/discussion.");
+  content.appendChild(aboutText);
+  content.appendChild(br);
+  br = document.createElement("br");
+  content.appendChild(br);
+  
+  aboutText = document.createTextNode( "We are a community of people dedicated to the practices of mindfulness, compassion, forgivness, and generosity, using meditation and kindness to heal the pain and suffering that addiction has caused in our lives and in the lives of those around us.");
+  content.appendChild(aboutText);
+  br = document.createElement("br");
+  content.appendChild(br);
+  br = document.createElement("br");
+  content.appendChild(br);
+  
+  aboutText = document.createTextNode("Open to people of all backgrounds and respectful of all recovery paths, these meetings are appropriate for anyone in, or interested in, recovery from any forms of addictive behavior.");
+  content.appendChild(aboutText);
+  br = document.createElement("br");
+  content.appendChild(br);
+  br = document.createElement("br");
+  content.appendChild(br);
+  
+  
+  aboutText = document.createTextNode("No prior meditation experience necessary.");
+  content.appendChild(aboutText);
+  
+}
+window.onscroll = function() {sticky()};
+
+
+
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function sticky() {
+  // Get the header
+var header = document.getElementById("myTopnav");
+
+// Get the offset position of the navbar
+var sticky = header.offsetTop;
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
 }
 
-topDiv.appendChild(homeContent);
-topDiv.appendChild(aboutText);
-//topDiv.appendChild(fourTruth);
-//topDiv.appendChild(eightPath);
-topDiv.appendChild(learnMore);
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  let children = x.childNodes;
+  for(let i = 2; i < children.length; i ++){
+    children[i].className = "";
+  }
+  
+  if (x.className === "topnav") {
+    x.className += " responsive";
+    x.classname += " sticky";
+  } else {
+    x.className = "topnav";
+  }
+}
+
 bottomDiv.appendChild(footer);
 footer.appendChild(email);
 footer.appendChild(learnMoreLink);
